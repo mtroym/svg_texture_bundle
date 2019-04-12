@@ -1,7 +1,13 @@
 <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg class="icon" width="640" height="320" viewBox="-5 -5 410 210" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!--<rect x="000" y="0" width="400" height="200" stroke="black" fill="rgb(247,217,179)" stroke-width="1"/>-->
-
+    <defs>
+        <filter id="gooFX">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="gooFX" />
+            <feComposite in="SourceGraphic" in2="gooFX" operator="atop" />
+        </filter>
+    </defs>
     <defs>
         <g id="strip">
             <rect x="-5000" y="0" width="10000" height="30" fill="rgb(239,209,207)" fill-opacity='0.7' stroke-width="0"/>
@@ -61,7 +67,7 @@
 <defs>
     <g id="cir">
 
-    <circle cx="0" cy="0" r="20" stroke="black" fill="rgb(0,209,207)" fill-opacity='1' stroke-width="5" transform="translate(0,0)"/>
+    <circle cx="0" cy="0" r="30" fill="rgb(0,209,207)" fill-opacity='1' stroke-width="5" transform="translate(0,0)"/>
 
     </g>
 </defs>
@@ -117,7 +123,22 @@
     </g>
 </defs>
 
-    <use xlink:href="#canvas_points_small" transform="translate(0,-80) rotate(15)"/>
+
+
+<defs>
+    <g id="canvas_points_blur" filter='url(#gooFX)' fill='#ffffff'>
+        <use xlink:href="#points_small" transform="translate(0,0)"/>
+        <use xlink:href="#points_small" transform="translate(0,-50)"/>
+        <use xlink:href="#points_small" transform="translate(0,50)"/>
+        <use xlink:href="#points_small" transform="translate(0,100)"/>
+        <use xlink:href="#points_small" transform="translate(0,150)"/>
+        <use xlink:href="#points_small" transform="translate(0,200)"/>
+        <use xlink:href="#points_small" transform="translate(0,250)"/>
+    </g>
+</defs>
+
+
+    <use xlink:href="#canvas_points_blur" transform="translate(0,-80) rotate(15)"/>
 
 
     <!--<rect x="-600" y="-100" width="800" height="800" fill="rgb(239,209,207)" fill-opacity='0.7' stroke-width="5" transform="rotate(15)"></rect>-->
